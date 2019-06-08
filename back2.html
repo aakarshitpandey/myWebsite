@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./back2.css" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="./styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+    <link rel="stylesheet" href="./try.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="particles-js">
+        <!-- <video src="./smoke.mp4" autoplay muted></video> -->
+        <h1 class="name">
+            <span>A</span>
+            <span>A</span>
+            <span>K</span>
+            <span>A</span>
+            <span>R</span>
+            <span>S</span>
+            <span>H</span>
+            <span>I</span>
+            <span>T</span>
+        </h1>
+        <div class="rocket">
+            <i class="fa fa-rocket" aria-hidden="true"></i>
+        </div>
+        <div class="container">
+            <div class="intro mx-auto">I am <span id="intro"></span></div>
+            <div class="resume">Resume</div>
+        </div>
+        <div class="down_icon fixed-bottom mx-auto">
+            <a href="#about-me"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+        </div>
+    </section>
+    <section id="about-me">
+        <div class="container">
+            <div class="row">
+                <img class="picture mx-auto" src="./myPic.png" alt="profile picture">
+                <!-- <div class="chart-container"><canvas class="myChart" id="myChart"></canvas></div> -->
+                <canvas class="myChart" id="myChart"></canvas>
+            </div>
+            <div class="container card-container">
+                <div class="description">
+                    <p class="card-text">Hello! I'm Aakarshit Pandey, a student at <a
+                            style="color: whitesmoke; font-weight: 700" href="www.purdue.edu" target="_blank">Purdue
+                            University</a>. I am currently pursuing Bachelors in Science in Computer Science. Technology
+                        has always intrigued me and I am always enthusiastic in learning and building new stuff.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/1)"></div>
+                <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/2)"></div>
+                <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/3)"></div>
+                <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/4)"></div>
+                <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/5)"></div>
+                <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/6)"></div>
+                <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/7)"></div>
+                <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/8)"></div>
+                <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/9)"></div>
+                <div class="swiper-slide" style="background-image:url(http://lorempixel.com/600/600/nature/10)"></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <section id="contact-me">
+        <div class="container">
+            <center>
+                <h2 class='contact-heading'>Contact Me!</h2>
+                <p>Feel free to drop down a message</p>
+                <form method="POST">
+                    <input type="text" class="message" name="message" id="message">
+                </form>
+                <button type="post" class="btn btn-primary">Done</button>
+            </center>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+    <script>
+        let options = {
+            strings: ["a student at Purdue University.", "a Sophomore.", "a Programmer.", "an App Developer.", "a Tech-Enthusiast.", "a Math and Physics Lover."],
+            typeSpeed: 30,
+            backSpeed: 30,
+            smartBackspace: true,
+            loop: true,
+            loopCount: Infinity,
+        }
+        let typed = new Typed("#intro", options);
+    </script>
+    <script>
+        let ctx = document.getElementById('myChart').getContext('2d');
+        let skillChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                labels: ['Java', 'C', 'Python', 'JavaScript', 'HTML/CSS', 'PhotoShop'],
+                datasets: [{
+                    label: 'Skills',
+                    data: [85, 80, 50, 70, 100, 90],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(153, 102, 255, 0.8)',
+                        'rgba(255, 99, 132, 0.8)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                fontColor: 'white',
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        display: false,
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }]
+                }
+            }
+        });
+        Chart.defaults.global.defaultFontColor = 'white';
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            initialSlide: 3,
+            loop: true,
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+            },
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
+</body>
+
+</html>

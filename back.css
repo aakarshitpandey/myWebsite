@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.backGround {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(90deg, #3f51b5, #00bcd4);
+    animation: back 20s linear infinite;
+}
+
+@keyframes back {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        filter: hue-rotate(360deg);
+    }
+
+    100% {
+        filter: hue-rotate(720deg);
+    }
+} 
+
+.backGround:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 100vh solid transparent;
+    border-left: 100vh solid #ffffff;
+    opacity: 0.1;
+}
+
+.backGround:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-top: 100vh solid transparent;
+    border-right: 100vh solid #ffffff;
+    opacity: 0.1;
+}

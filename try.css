@@ -1,0 +1,12 @@
+  .swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .swiper-slide {
+    box-shadow: 3px 8px 8px 3px rgba(0, 0, 0, 0.5);
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
