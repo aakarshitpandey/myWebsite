@@ -20,6 +20,27 @@
 </head>
 
 <body>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#particles-js"><span style="font-size: 2rem">A</span>AKARSHIT
+            <span style="font-size: 2rem">P</span>ANDEY</a>
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a id="first-nav" class="nav-link" href="#about-me">About<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a id="second-nav" class="nav-link" href="#projects" tabindex="-1" aria-disabled="true">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a id="third-nav" class="nav-link" href="#contact-me" tabindex="-1" aria-disabled="true">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <section id="particles-js">
         <!-- <video src="./smoke.mp4" autoplay muted></video> -->
         <h1 class="name">
@@ -49,7 +70,36 @@
             <div class="row">
                 <img class="picture mx-auto" src="./myPic.png" alt="profile picture">
                 <!-- <div class="chart-container"><canvas class="myChart" id="myChart"></canvas></div> -->
-                <canvas class="myChart" id="myChart"></canvas>
+                <!-- <canvas class="myChart" id="myChart"></canvas> -->
+                <div class="timeline">
+                    <div class="timeline-container">
+                        <div class="timeline-content">
+                            <h2><a href="https://www.purdue.edu/" target="_blank"
+                                    style="text-decoration: none; color: #222;">Purdue University
+                                    '22</a></h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, non optio? Quaerat
+                                excepturi
+                                ratione
+                                voluptatibus officiis repellendus laboriosam hic ullam? Esse id libero adipisci, vitae
+                                maiores
+                                nesciunt
+                                voluptatum soluta inventore!</p>
+                            <!-- <div class="year"><span>1986</span></div> -->
+                        </div>
+                        <div class="timeline-content">
+                            <h2><a href="https://centrepointschools.com/" target="_blank"
+                                    style="text-decoration: none; color: #222;">Center Point
+                                    School</a></h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur, non optio? Quaerat
+                                excepturi
+                                ratione
+                                voluptatibus officiis repellendus laboriosam hic ullam? Esse id libero adipisci, vitae
+                                maiores
+                                nesciunt
+                                voluptatum soluta inventore!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="container card-container">
                 <div class="description">
@@ -77,6 +127,10 @@
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
+        </div>
+        <div class="row">
+            <canvas class="myChart" id="myChart"></canvas>
+            <canvas class="myChart-tech" id="myChart-tech"></canvas>
         </div>
     </section>
     <section id="contact-me">
@@ -113,7 +167,7 @@
             data: {
                 labels: ['Java', 'C', 'Python', 'JavaScript', 'HTML/CSS', 'PhotoShop'],
                 datasets: [{
-                    label: 'Skills',
+                    label: 'Programming-Languages',
                     data: [85, 80, 50, 70, 100, 90],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.8)',
@@ -156,6 +210,55 @@
             }
         });
         Chart.defaults.global.defaultFontColor = 'white';
+
+        let ctx2 = document.getElementById('myChart-tech').getContext('2d');
+        let skillChart2 = new Chart(ctx2, {
+            type: 'horizontalBar',
+            data: {
+                labels: ['Android Studio', 'React', 'SQL', 'Django', 'Node', 'Express'],
+                datasets: [{
+                    label: 'Technologies',
+                    data: [85, 80, 50, 70, 100, 90],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(153, 102, 255, 0.8)',
+                        'rgba(255, 99, 132, 0.8)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 99, 132, 1)',
+                    ],
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                fontColor: 'white',
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        display: false,
+                        ticks: {
+                            beginAtZero: true,
+                        }
+                    }]
+                }
+            }
+        });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
@@ -182,6 +285,48 @@
                 el: '.swiper-pagination',
             },
         });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        window.addEventListener('scroll', (e) => {
+            if (window.scrollY > 100) {
+                const navbar = document.getElementById('navbar')
+                navbar.classList.add('bg-custom')
+            } else {
+                const navbar = document.getElementById('navbar')
+                navbar.classList.remove('bg-custom')
+            }
+        })
+    </script>
+    <script>
+        $(window).scroll(function () {
+            console.log(window.scrollY)
+            if (parseInt(window.scrollY, 10) <= 440) {
+                document.getElementById('first-nav').classList.remove('active');
+                document.getElementById('second-nav').classList.remove('active');
+                document.getElementById('third-nav').classList.remove('active');
+            } else if (parseInt(window.scrollY, 10) > 440 && parseInt(window.scrollY, 10) <= 1400) {
+                document.getElementById('first-nav').classList.add('active');
+                document.getElementById('second-nav').classList.remove('active');
+                document.getElementById('third-nav').classList.remove('active');
+            } else if (parseInt(window.scrollY, 10) > 1400 && parseInt(window.scrollY, 10) <= 1850) {
+                document.getElementById('first-nav').classList.remove('active');
+                document.getElementById('second-nav').classList.add('active');
+                document.getElementById('third-nav').classList.remove('active');
+            } else {
+                document.getElementById('first-nav').classList.remove('active');
+                document.getElementById('second-nav').classList.remove('active');
+                document.getElementById('third-nav').classList.add('active');
+            }
+        })
     </script>
 </body>
 

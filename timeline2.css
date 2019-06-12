@@ -27,7 +27,7 @@ body {
     background: #f4a24a;
     padding: 20px;
     margin: 20px 60px;
-    width: 65%;
+    width: 500px;
     border-radius: 8px;
     position: relative;
 }
@@ -55,6 +55,17 @@ body {
     left: -65px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.year {
+    width: 50%;
+    /* padding-left: 50px; */
+    position: absolute;
+    top: 50%;
+    right: 0;
+    text-align: right;
+    transform: translateY(-30%); 
+    transform: translateX(25%); 
 }
 
 .year span {
