@@ -13,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker&display=swap"
         rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="./styles.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     <link rel="stylesheet" href="./try.css">
@@ -138,7 +137,10 @@
                             style="font-size: 1.75rem">A</span>LERT<span style="font-size: 1.75rem">S</span>YSTEM</a>
                     <div class="swipe-description top bg-gradientWhite">It is a django based data
                         retrieval and alert system which scrapes a website for a list of inmates and alerts the
-                        administrator on changes.</div>
+                        administrator on changes as a part of <a
+                            style="color: black; font-style: italic; font-weight: 800; text-decoration: none"
+                            href="https://engineering.purdue.edu/EPICS">EPICS</a>.
+                    </div>
                 </div>
                 <div class="swiper-slide"
                     style="background-image:url(./restaurant.svg); background-color: #555555; color: white">
@@ -160,12 +162,21 @@
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
         </div>
+        <center>
+            <div class="btn-group">
+                <div id="left" class="swipe-btn"><i class="fa fa-chevron-left"></i></div>
+                <div class="btn btn-danger my-auto" style="border-radius: 15%; padding: 20px; margin: 10px;">See More
+                </div>
+                <div id="right" class="swipe-btn"><i class="fa fa-chevron-right"></i></div>
+            </div>
+        </center>
         <!-- <div class="container"> -->
         <div class="row" style="padding: 20px">
             <canvas class="myChart" id="myChart"></canvas>
             <canvas class="myChart-tech" id="myChart-tech"></canvas>
         </div>
         <!-- </div> -->
+
     </section>
     <section id="contact-me">
         <div class="container">
@@ -203,10 +214,10 @@
         let skillChart = new Chart(ctx, {
             type: 'horizontalBar',
             data: {
-                labels: ['Java', 'C', 'Python', 'JavaScript', 'HTML/CSS', 'PhotoShop'],
+                labels: ['Java', 'C', 'Python', 'JavaScript', 'MySQL', 'HTML/CSS'],
                 datasets: [{
                     label: 'Programming-Languages',
-                    data: [85, 80, 50, 70, 100, 90],
+                    data: [85, 80, 50, 70, 60, 100],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.8)',
                         'rgba(54, 162, 235, 0.8)',
@@ -253,10 +264,10 @@
         let skillChart2 = new Chart(ctx2, {
             type: 'horizontalBar',
             data: {
-                labels: ['Android Studio', 'React', 'SQL', 'Django', 'Node', 'Express'],
+                labels: ['Android Studio', 'React', 'Django', 'Node', 'Express', 'Photoshop'],
                 datasets: [{
                     label: 'Technologies',
-                    data: [85, 80, 50, 70, 100, 90],
+                    data: [70, 70, 65, 80, 85, 90],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.8)',
                         'rgba(54, 162, 235, 0.8)',
@@ -298,6 +309,7 @@
             }
         });
     </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <script>
@@ -364,6 +376,20 @@
                 document.getElementById('second-nav').classList.remove('active');
                 document.getElementById('third-nav').classList.add('active');
             }
+        })
+    </script>
+    <script>
+        const rightButton = document.getElementById('right');
+        rightButton.addEventListener('click', (e) => {
+            console.log('right button pressed')
+            let evt = new KeyboardEvent('keydown', { 'keyCode': 39 })
+            document.dispatchEvent(evt);
+        })
+        const leftButton = document.getElementById('left');
+        leftButton.addEventListener('click', (e) => {
+            console.log('left button pressed')
+            let evt = new KeyboardEvent('keydown', { 'keyCode': 37 })
+            document.dispatchEvent(evt);
         })
     </script>
 </body>
