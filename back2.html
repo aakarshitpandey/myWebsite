@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
     <link rel="stylesheet" href="./try.css">
@@ -65,14 +66,20 @@
         <div class="down_icon fixed-bottom mx-auto">
             <a href="#about-me"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
         </div>
+        <footer class="card fixed-bottom">
+            <div class="btn-group mx-auto">
+                <div class="wow fadeInLeftBig social-ico"><i class="fa fa-instagram"></i></div>
+                <div class="wow fadeInLeft social-ico"><i class="fa fa-facebook-square"></i></div>
+                <div class="wow lightSpeedIn social-ico"><i class="fa fa-github-square"></i></div>
+                <div class="wow fadeInRightBig social-ico"><i class="fa fa-envelope"></i></div>
+            </div>
+        </footer>
     </section>
     <section id="about-me">
         <div class="container">
             <div class="row">
                 <img class="picture mx-auto" src="./myPic.png" alt="profile picture">
-                <!-- <div class="chart-container"><canvas class="myChart" id="myChart"></canvas></div> -->
-                <!-- <canvas class="myChart" id="myChart"></canvas> -->
-                <div class="timeline">
+                <div class="timeline wow bounceInRight">
                     <div class="timeline-container">
                         <div class="timeline-content">
                             <h2><a href="https://www.purdue.edu/" target="_blank"
@@ -106,7 +113,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container card-container">
+            <div class=" wow fadeInUpBig container card-container">
                 <div class="description">
                     <p class="card-text">Hello! I'm Aakarshit Pandey, a student at <a
                             style="color: whitesmoke; font-weight: 700" href="www.purdue.edu" target="_blank">Purdue
@@ -171,7 +178,7 @@
             </div>
         </center>
         <!-- <div class="container"> -->
-        <div class="row" style="padding: 20px">
+        <div class="wow slideInUp row" style="padding: 20px">
             <canvas class="myChart" id="myChart"></canvas>
             <canvas class="myChart-tech" id="myChart-tech"></canvas>
         </div>
@@ -193,6 +200,14 @@
                 href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
                 href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC
                 3.0 BY</a></div>
+        <footer class="card">
+            <div class="btn-group mx-auto">
+                <div class="wow flipInX social-ico ico-back"><i class="fa fa-instagram"></i></div>
+                <div class="wow flipInX social-ico ico-back"><i class="fa fa-facebook-square"></i></div>
+                <div class="wow flipInX social-ico ico-back"><i class="fa fa-github-square"></i></div>
+                <div class="wow flipInX social-ico ico-back"><i class="fa fa-envelope"></i></div>
+            </div>
+        </footer>
     </section>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="particles.js"></script>
@@ -309,7 +324,6 @@
             }
         });
     </script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <script>
@@ -391,6 +405,10 @@
             let evt = new KeyboardEvent('keydown', { 'keyCode': 37 })
             document.dispatchEvent(evt);
         })
+    </script>
+    <script src="./wow.min.js"></script>
+    <script>
+        new WOW().init();
     </script>
 </body>
 
