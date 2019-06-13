@@ -519,7 +519,10 @@ h1 span:nth-child(9) {
 }
 
 #contact-me .btn {
-    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    font-size: 1.5rem;
     background: transparent;
 }
 
@@ -757,4 +760,24 @@ nav .nav-item::before {
     background: rgb(224, 132, 26);
     color: black !important;
     border-radius: 20%;
+}
+
+.copyright {
+    padding: 20px 0px;
+    color: #777;
+}
+
+.copyright a {
+    text-decoration: none;
+    color: #777;
+}
+
+.copyright a:hover {
+    color: #999999;
+}
+
+@media (max-width: 700px) {
+    .copyright {
+        display: none;
+    }
 }
