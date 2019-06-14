@@ -419,7 +419,7 @@
                 error.classList.remove('text-success')
                 error.classList.remove('text-danger')
                 error.classList.add('text-warning')
-                error.value = "The feild cannot be empty!"
+                error.textContent = "The feild cannot be empty!"
             } else {
                 axios.post('/', {
                     message: msg,
