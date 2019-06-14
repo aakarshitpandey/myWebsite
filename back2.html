@@ -417,6 +417,7 @@
             if (msg === '' || !msg) {
                 const error = document.getElementById('error-msg')
                 error.classList.remove('text-success')
+                error.classList.remove('text-danger')
                 error.classList.add('text-warning')
                 error.value = "The feild cannot be empty!"
             } else {
@@ -424,13 +425,17 @@
                     message: msg,
                 })
                     .then((res) => {
+                        error.classList.remove('text-warning')
+                        error.classList.remove('text-danger')
+                        error.classList.add('text-success')
                         document.getElementById('error-msg').textContent = 'Your message has been sent!'
                     })
                     .catch((err) => {
                         const error = document.getElementById('error-msg')
+                        error.classList.remove('text-warning')
                         error.classList.remove('text-success')
                         error.classList.add('text-danger')
-                        error.value = "Your message couldn't be sent!"
+                        error.textContent = "Your message couldn't be sent!"
                     })
             }
         })
