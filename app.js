@@ -35,7 +35,7 @@ particlesJS('particles-js',
           "nb_sides": 5
         },
         "image": {
-          "src": "zero.svg",
+          "src": "./static/images/zero.svg",
           "height": 1000,
           "width": 600,
         },
