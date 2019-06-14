@@ -44,7 +44,6 @@
         </div>
     </nav>
     <section id="particles-js">
-        <!-- <video src="./smoke.mp4" autoplay muted></video> -->
         <h1 class="name">
             <span>A</span>
             <span>A</span>
@@ -189,13 +188,14 @@
         <div class="container">
             <center>
                 <h2 class='contact-heading'>Contact Me!</h2>
-                <p>Feel free to drop down a message</p>
-                <form method="POST">
+                <p>Feel free to drop down a message :-)</p>
+                <form method="POST" id="form">
                     <input type="text" class="message" name="message" id="message">
                 </form>
-                <button type="post" class="btn btn-primary">Done</button>
+                <button type="post" id="sendEmail" class="btn btn-primary">Done</button>
             </center>
         </div>
+        <center class="error-msg text-success" id="error-msg"></center>
         <footer class="card">
             <div class="btn-group mx-auto">
                 <div class="wow flipInX social-ico ico-back"><i class="fa fa-instagram"></i></div>
@@ -407,8 +407,33 @@
         })
     </script>
     <script src="./wow.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         new WOW().init();
+        const doneButton = document.getElementById('sendEmail');
+        const body = document.getElementById('message');
+        doneButton.addEventListener('click', (e) => {
+            msg = body.value;
+            if (msg === '' || !msg) {
+                const error = document.getElementById('error-msg')
+                error.classList.remove('text-success')
+                error.classList.add('text-warning')
+                error.value = "The feild cannot be empty!"
+            } else {
+                axios.post('/', {
+                    message: msg,
+                })
+                    .then((res) => {
+                        document.getElementById('error-msg').textContent = 'Your message has been sent!'
+                    })
+                    .catch((err) => {
+                        const error = document.getElementById('error-msg')
+                        error.classList.remove('text-success')
+                        error.classList.add('text-danger')
+                        error.value = "Your message couldn't be sent!"
+                    })
+            }
+        })
     </script>
 </body>
 

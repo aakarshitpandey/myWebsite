@@ -2,7 +2,10 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const bodyparser = require('body-parser')
-let PORT = process.env.PORT | 4000
+let PORT = process.env.PORT | 8000
+const fs = require('fs')
+let rawdata = fs.readFileSync('creds.json');
+let creds = JSON.parse(rawdata);
 
 app.use(express.static(__dirname))
 app.use(bodyparser())
@@ -17,12 +20,26 @@ app.get('/:fileName', (req, res, next) => {
 
 app.post('/', (req, res, next) => {
     console.log(`Post request recieved`)
-    const message = req.body;
-    console.log(req.url)
-    console.log(message)
-    res.status(201).redirect(`${req.url}`)
+    console.log(req.body.message)
+    sendMessage(req.body.message)
+    res.status(201).redirect(`${req.url}#contact-me`)
 });
 
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
 });
+
+console.log(creds.SENDGRID_API_KEY)
+
+function sendMessage(sendText) {
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(creds.SENDGRID_API_KEY);
+    const msg = {
+        to: 'aakarshit.pandey7@gmail.com',
+        from: 'cooldudepandey@gmail.com',
+        subject: 'Message from Personal Website',
+        text: `Hi! someone messaged you on your website: ${sendText}`,
+        html: `<strong>Hi! someone messaged you on your website:</strong><p>${sendText}</p>`,
+    };
+    sgMail.send(msg);
+}
