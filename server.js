@@ -11,11 +11,20 @@ app.use(express.static(__dirname))
 app.use(bodyparser())
 
 app.get('/', (req, res, next) => {
-    res.sendFile(path.join(__dirname + '/back2.html'))
+    res.sendFile(path.join(__dirname + '/views/index.html'))
 })
 
 app.get('/:fileName', (req, res, next) => {
-    res.sendFile(path.join(__dirname + `/${req.params.fileName}.html`));
+    fs.readdir(path.join(__dirname + '/views'), (err, items) => {
+        if (items.findIndex((element) => {
+            return element.localeCompare(`${req.params.fileName}` + '.html') === 0
+        }) !== -1) {
+            res.sendFile(path.join(__dirname + `/views/${req.params.fileName}.html`));
+        } else {
+            res.status(404).send()
+        }
+    })
+
 })
 
 app.post('/', (req, res, next) => {
@@ -28,8 +37,6 @@ app.post('/', (req, res, next) => {
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
 });
-
-console.log(creds.SENDGRID_API_KEY)
 
 function sendMessage(sendText) {
     const sgMail = require('@sendgrid/mail');
