@@ -435,8 +435,8 @@
         const body = document.getElementById('message');
         doneButton.addEventListener('click', (e) => {
             msg = body.value;
+            const error = document.getElementById('error-msg')
             if (msg === '' || !msg) {
-                const error = document.getElementById('error-msg')
                 error.classList.remove('text-success')
                 error.classList.remove('text-danger')
                 error.classList.add('text-warning')
@@ -446,12 +446,14 @@
                     message: msg,
                 })
                     .then((res) => {
+                        console.log("In .then method")
                         error.classList.remove('text-warning')
                         error.classList.remove('text-danger')
                         error.classList.add('text-success')
                         document.getElementById('error-msg').textContent = 'Your message has been sent!'
                     })
                     .catch((err) => {
+                        console.log("In .catch method")
                         const error = document.getElementById('error-msg')
                         error.classList.remove('text-warning')
                         error.classList.remove('text-success')
