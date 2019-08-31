@@ -233,19 +233,23 @@ h1 span:nth-child(5) {
 }
 
 h1 span:nth-child(6) {
-    animation-delay: 3.5s;  
+    /* animation-delay: 3.5s;   */
+    animation-delay: 3.35s;  
 }
 
 h1 span:nth-child(7) {
-    animation-delay: 3.75s;  
+    /* animation-delay: 3.75s;   */
+    animation-delay: 3.5s;  
 }
 
 h1 span:nth-child(8) {
-    animation-delay: 4s;  
+    /* animation-delay: 4s;   */
+    animation-delay: 3.6s;  
 }
 
 h1 span:nth-child(9) {
-    animation-delay: 4.1s;  
+    /* animation-delay: 4.1s;   */
+    animation-delay: 3.7s;  
 }
 
 @keyframes plane {
