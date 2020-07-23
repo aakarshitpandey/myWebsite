@@ -17,9 +17,9 @@ app.get('/', (req, res, next) => {
 app.get('/:fileName', (req, res, next) => {
     fs.readdir(path.join(__dirname + '/views'), (err, items) => {
         if (items.findIndex((element) => {
-            return element.localeCompare(`${req.params.fileName}` + '.html') === 0
+            return element.localeCompare(`${req.params.fileName}`) === 0
         }) !== -1) {
-            res.sendFile(path.join(__dirname + `/views/${req.params.fileName}.html`));
+            res.sendFile(path.join(__dirname + `/views/${req.params.fileName}`));
         } else {
             res.status(404).send()
         }
@@ -43,7 +43,7 @@ function sendMessage(sendText) {
     sgMail.setApiKey(creds.SENDGRID_API_KEY);
     const msg = {
         to: 'aakarshit.pandey7@gmail.com',
-        from: 'cooldudepandey@gmail.com',
+        from: 'aakarshit_p@yahoo.com',
         subject: 'Message from Personal Website',
         text: `Hi! someone messaged you on your website: ${sendText}`,
         html: `<strong>Hi! someone messaged you on your website:</strong><p>${sendText}</p>`,
