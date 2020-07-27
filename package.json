@@ -5,10 +5,13 @@
   "main": "server.js",
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",
+    "cssnano": "^4.1.10",
     "express": "^4.17.1",
     "googleapis": "^39.2.0",
     "lesshat": "^4.1.0",
     "nodemailer": "^6.2.1",
+    "postcss": "^7.0.32",
+    "postcss-cli": "^7.1.1",
     "typed.js": "^2.0.10"
   },
   "devDependencies": {
@@ -18,6 +21,7 @@
     "node": "10.15.3"
   },
   "scripts": {
+    "minify-css": "postcss static/css/ --dir static/min-css/",
     "test": "npm start",
     "start": "node server.js",
     "dev": "nodemon server.js"

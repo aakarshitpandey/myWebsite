@@ -42,6 +42,11 @@ var pJS = function (tag_id, params) {
           src: '',
           width: 100,
           height: 100
+        },
+        imageTwo: {
+          src: '',
+          width: 100,
+          height: 100
         }
       },
       opacity: {
@@ -392,8 +397,22 @@ var pJS = function (tag_id, params) {
       }
     }
 
-
-
+    if (this.shape == 'image-two') {
+      console.log('Second image')
+      var sh = pJS.particles.shape;
+      this.img = {
+        src: sh.imageTwo.src,
+        ratio: sh.imageTwo.width / sh.imageTwo.height
+      }
+      if (!this.img.ratio) this.img.ratio = 1;
+      if (pJS.tmp.imgTwo_type == 'svg' && pJS.tmp.source_svg != undefined) {
+        console.log('Second image making', this)
+        pJS.fn.vendors.createSvgImg(this);
+        if (pJS.tmp.pushing) {
+          this.img.loaded = false;
+        }
+      }
+    }
   };
 
 
@@ -459,7 +478,6 @@ var pJS = function (tag_id, params) {
         break;
 
       case 'image':
-
         function draw() {
           pJS.canvas.ctx.drawImage(
             img_obj,
@@ -474,6 +492,29 @@ var pJS = function (tag_id, params) {
           var img_obj = p.img.obj;
         } else {
           var img_obj = pJS.tmp.img_obj;
+        }
+
+        if (img_obj) {
+          draw();
+        }
+
+        break;
+
+      case 'image-two':
+        function draw() {
+          pJS.canvas.ctx.drawImage(
+            img_obj,
+            p.x - radius,
+            p.y - radius,
+            radius * 2,
+            radius * 2 / p.img.ratio
+          );
+        }
+
+        if (pJS.tmp.imgTwo_type == 'svg') {
+          var img_obj = p.imgTwo.obj;
+        } else {
+          var img_obj = pJS.tmp.imgTwo_obj;
         }
 
         if (img_obj) {
@@ -647,7 +688,6 @@ var pJS = function (tag_id, params) {
       var p = pJS.particles.array[i];
       p.draw();
     }
-
   };
 
   pJS.fn.particlesEmpty = function () {
@@ -661,6 +701,7 @@ var pJS = function (tag_id, params) {
     cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
     pJS.tmp.source_svg = undefined;
     pJS.tmp.img_obj = undefined;
+    pJS.tmp.imgTwo_obj = undefined;
     pJS.tmp.count_svg = 0;
     pJS.fn.particlesEmpty();
     pJS.fn.canvasClear();
@@ -1297,8 +1338,48 @@ var pJS = function (tag_id, params) {
           pJS.tmp.img_obj = img;
           pJS.fn.vendors.checkBeforeDraw();
         });
-        img.src = pJS.particles.shape.image.src;
+        img.src = pJS.particles.shape.image.src; //TODO
 
+      }
+
+    } else {
+      console.log('Error pJS - No image.src');
+      pJS.tmp.img_error = true;
+    }
+
+  };
+
+  pJS.fn.vendors.loadImgTwo = function (type) {
+
+    pJS.tmp.img_error = undefined;
+
+    if (pJS.particles.shape.imageTwo.src != '') {
+
+      if (type == 'svg') {
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', pJS.particles.shape.imageTwo.src);
+        xhr.onreadystatechange = function (data) {
+          if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+              pJS.tmp.source_svg = data.currentTarget.response;
+              pJS.fn.vendors.checkBeforeDraw();
+            } else {
+              console.log('Error pJS - Image not found');
+              pJS.tmp.img_error = true;
+            }
+          }
+        }
+        xhr.send();
+
+      } else {
+
+        var img = new Image();
+        img.addEventListener('load', function () {
+          pJS.tmp.imgTwo_obj = img;
+          pJS.fn.vendors.checkBeforeDraw();
+        });
+        img.src = pJS.particles.shape.imageTwo.src;
       }
 
     } else {
@@ -1336,6 +1417,28 @@ var pJS = function (tag_id, params) {
 
       }
 
+    } else if (pJS.particles.shape.type == 'image-two') {
+      if (pJS.tmp.imgTwo_type == 'svg') {
+
+        if (pJS.tmp.count_svg >= pJS.particles.number.value) {
+          pJS.fn.particlesDraw();
+          if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+          else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+        } else {
+          //console.log('still loading...');
+          if (!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+        }
+
+      } else {
+
+        if (pJS.tmp.imgTwo_obj != undefined) {
+          pJS.fn.particlesDraw();
+          if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
+          else pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+        } else {
+          if (!pJS.tmp.img_error) pJS.fn.drawAnimFrame = requestAnimFrame(pJS.fn.vendors.draw);
+        }
+      }
     } else {
       pJS.fn.particlesDraw();
       if (!pJS.particles.move.enable) cancelRequestAnimFrame(pJS.fn.drawAnimFrame);
@@ -1361,7 +1464,18 @@ var pJS = function (tag_id, params) {
         }
 
       }
+    } else if (pJS.particles.shape.type == 'image-two') {
+      if (pJS.tmp.imgTwo_type == 'svg' && pJS.tmp.source_svg == undefined) {
+        pJS.tmp.checkAnimFrame = requestAnimFrame(check);
+      } else {
+        //console.log('images loaded! cancel check');
+        cancelRequestAnimFrame(pJS.tmp.checkAnimFrame);
+        if (!pJS.tmp.img_error) {
+          pJS.fn.vendors.init();
+          pJS.fn.vendors.draw();
+        }
 
+      }
     } else {
       pJS.fn.vendors.init();
       pJS.fn.vendors.draw();
@@ -1389,6 +1503,11 @@ var pJS = function (tag_id, params) {
   pJS.fn.vendors.start = function () {
 
     if (isInArray('image', pJS.particles.shape.type)) {
+      if (isInArray('image-two', pJS.particles.shape.type)) {
+        console.log(pJS.particles.shape)
+        pJS.tmp.imgTwo_type = pJS.particles.shape.imageTwo.src.substr(pJS.particles.shape.imageTwo.src.length - 3);
+        pJS.fn.vendors.loadImgTwo(pJS.tmp.imgTwo_type);
+      }
       pJS.tmp.img_type = pJS.particles.shape.image.src.substr(pJS.particles.shape.image.src.length - 3);
       pJS.fn.vendors.loadImg(pJS.tmp.img_type);
     } else {
@@ -1535,5 +1654,4 @@ window.particlesJS.load = function (tag_id, path_config_json, callback) {
     }
   };
   xhr.send();
-
 };
