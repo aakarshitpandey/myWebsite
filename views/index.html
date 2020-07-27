@@ -92,8 +92,11 @@
             <i class="fa fa-rocket" aria-hidden="true"></i>
         </div>
         <div class="container">
-            <div class="intro mx-auto"><span id="intro"></span></div>
-            <a class="resume" target="_blank" href="resume.pdf" style="color: white; text-decoration: none;">Resume</a>
+            <div class="intro"><span id="intro"></span></div>
+            <div class="resume">
+                <a class="resume-btn" target="_blank" href="resume.pdf"
+                    style="color: white; text-decoration: none;">Resume</a>
+            </div>
         </div>
         <div class="down_icon position-absolute mx-auto">
             <a href="#about-me"><i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
@@ -119,7 +122,18 @@
     <section id="about-me">
         <!-- <div class="container"> -->
         <div class="row justify-content-center">
-            <img class="picture" src="./static/images/myPic.png" alt="profile picture">
+            <div class="pic-and-desc row justify-content-center">
+                <img class="picture" src="./static/images/myPic.png" alt="profile picture">
+                <div class="wow fadeInUpBig card-container desc-container">
+                    <div class="description" style="margin: 20px;">
+                        <p class="card-text">Hello! I'm Aakarshit Pandey, a student at <a
+                                style="color: whitesmoke; font-weight: 700" href="www.purdue.edu" target="_blank">Purdue
+                                University</a>. I am currently pursuing Bachelors in Science in Computer Science.
+                            Technology
+                            has always intrigued me and I am always enthusiastic in learning and building new stuff.</p>
+                    </div>
+                </div>
+            </div>
             <div class="timeline wow bounceInRight">
                 <div class="timeline-container">
                     <div class="timeline-content" style="background: #009ebd">
@@ -169,15 +183,6 @@
                 </div>
             </div>
         </div>
-        <div class=" wow fadeInUpBig container card-container">
-            <div class="description">
-                <p class="card-text">Hello! I'm Aakarshit Pandey, a student at <a
-                        style="color: whitesmoke; font-weight: 700" href="www.purdue.edu" target="_blank">Purdue
-                        University</a>. I am currently pursuing Bachelors in Science in Computer Science.
-                    Technology
-                    has always intrigued me and I am always enthusiastic in learning and building new stuff.</p>
-            </div>
-        </div>
         <!-- </div> -->
     </section>
     <section id="projects">
@@ -198,8 +203,9 @@
                     </div>
                     <div class="swiper-slide"
                         style="background-image:url(./static/images/pie.png); background-color: #222222; color: white">
-                        <a href="#" target="_blank" class="bottom bg-gradientWhite proj-link"
-                            style="text-decoration: none"><span style="font-size: 1.75rem">PIE</span></a>
+                        <a href="https://github.com/aakarshitpandey/pie" target="_blank"
+                            class="bottom bg-gradientWhite proj-link" style="text-decoration: none"><span
+                                style="font-size: 1.75rem">PIE</span></a>
                         <div class="swipe-description bg-gradientBlack top">
                             Packing It Efficiently: An app that optimizes space in containers. And uses images analysis
                             using OpenCV for dimensional analysis
@@ -207,9 +213,9 @@
                     </div>
                     <div class="swiper-slide"
                         style="background-image:url(./static/images/scanbite.png); background-color: #222222; color: white">
-                        <a href="#" target="_blank" class="bottom bg-gradientWhite proj-link"
-                            style="text-decoration: none"><span style="font-size: 1.75rem">S</span>CAN<span
-                                style="font-size: 1.75rem"> B</span>ITE</a>
+                        <a href="https://github.com/aakarshitpandey/boilermake7ios" target="_blank"
+                            class="bottom bg-gradientWhite proj-link" style="text-decoration: none"><span
+                                style="font-size: 1.75rem">S</span>CAN<span style="font-size: 1.75rem"> B</span>ITE</a>
                         <div class="swipe-description bg-gradientBlack top">
                             Packing It Efficiently: An app that optimizes space in containers. Implements images
                             analysis
@@ -234,6 +240,18 @@
                                 style="font-size: 1.75rem">I</span>NK<span style="font-size: 1.75rem"> S</span>PEAKS</a>
                         <div class="swipe-description bg-gradientBlack top">
                             A Web App which lets you create channels for creating and sharing blog posts
+                        </div>
+                    </div>
+                    <div class="swiper-slide"
+                        style="background-image:url(./static/images/weshwaas.png); background-color: #222222; color: black">
+                        <a href="https://docs.google.com/presentation/d/1hcvVueuLn2wVje5yD4WDm5b7TBJSpLE5D8bz9ckqLrY/edit#slide=id.p"
+                            target="_blank" class="bottom bg-gradientWhite proj-link"
+                            style="text-decoration: none"><span style="font-size: 1.75rem">W</span>E<span
+                                style="font-size: 1.75rem"> S</span>HWAAS</a>
+                        <div class="swipe-description bg-gradientBlack top" style="background: rgba(0,0,0,.1);">
+                            This app will classify the auscultatory sounds of the patients and tell whether it is coming
+                            from a COVID +ve patient or not. Won <em>Best Idea and Best Business model</em> award at
+                            Decoding COVID hackathon
                         </div>
                     </div>
                     <div class="swiper-slide" style="background-image:url(./static/images/earlybird.png);">
@@ -293,7 +311,8 @@
             <div class="container">
                 <center>
                     <h2 class='contact-heading'>Contact Me!</h2>
-                    <p>Feel free to drop down a message :-)</p>
+                    <p>Wanna collaborate or discuss cars, tech, or work on a project? Feel free to drop down a message
+                        :-)</p>
                     <form method="POST" id="form">
                         <input type="text" class="message" name="message" id="message">
                     </form>
@@ -326,7 +345,7 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
     <script>
         let options = {
-            strings: ["I am a student at Purdue University.", "I am a Junior.", "I am a Programmer.", "I am an App Developer.", "I am a Tech-Enthusiast."],
+            strings: ["I am a student at Purdue University.", "I am a Programmer.", "I am an App Developer.", "I am a Tech-Enthusiast.", "I am a Car-Enthusiast"],
             typeSpeed: 30,
             backSpeed: 30,
             smartBackspace: true,
@@ -340,10 +359,10 @@
         let skillChart = new Chart(ctx, {
             type: 'horizontalBar',
             data: {
-                labels: ['Java', 'C', 'Python', 'JavaScript', 'MySQL', 'HTML/CSS'],
+                labels: ['Java', 'C', 'Python', 'JavaScript', 'Swift', 'C++', 'R', 'Bash', 'MySQL', 'CSS'],
                 datasets: [{
                     label: 'Programming-Languages',
-                    data: [85, 80, 50, 70, 60, 100],
+                    data: [85, 80, 60, 85, 65, 65, 35, 50, 45, 80],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.8)',
                         'rgba(54, 162, 235, 0.8)',
@@ -351,6 +370,10 @@
                         'rgba(75, 192, 192, 0.8)',
                         'rgba(153, 102, 255, 0.8)',
                         'rgba(255, 99, 132, 0.8)',
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)',
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
@@ -359,6 +382,10 @@
                         'rgba(75, 192, 192, 1)',
                         'rgba(153, 102, 255, 1)',
                         'rgba(255, 99, 132, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
                     ],
                     borderWidth: 1,
                 }]
