@@ -398,7 +398,7 @@ var pJS = function (tag_id, params) {
     }
 
     if (this.shape == 'image-two') {
-      console.log('Second image')
+      // console.log('Second image')
       var sh = pJS.particles.shape;
       this.img = {
         src: sh.imageTwo.src,
@@ -406,7 +406,7 @@ var pJS = function (tag_id, params) {
       }
       if (!this.img.ratio) this.img.ratio = 1;
       if (pJS.tmp.imgTwo_type == 'svg' && pJS.tmp.source_svg != undefined) {
-        console.log('Second image making', this)
+        // console.log('Second image making', this)
         pJS.fn.vendors.createSvgImg(this);
         if (pJS.tmp.pushing) {
           this.img.loaded = false;
