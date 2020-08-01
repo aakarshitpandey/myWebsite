@@ -1504,7 +1504,7 @@ var pJS = function (tag_id, params) {
 
     if (isInArray('image', pJS.particles.shape.type)) {
       if (isInArray('image-two', pJS.particles.shape.type)) {
-        console.log(pJS.particles.shape)
+        // console.log(pJS.particles.shape)
         pJS.tmp.imgTwo_type = pJS.particles.shape.imageTwo.src.substr(pJS.particles.shape.imageTwo.src.length - 3);
         pJS.fn.vendors.loadImgTwo(pJS.tmp.imgTwo_type);
       }

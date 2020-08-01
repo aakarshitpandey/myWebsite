@@ -13,7 +13,7 @@ particlesJS.load('particles-js', 'particles.json', function() {
 
 particlesJS.load('particles-js', 'particles.json',
   () => {
-    console.log('Particles.js is running...')
+    // console.log('Particles.js is running...')
     document.getElementById('main-body').style.display = '';
     document.getElementById('loader').style.transition = "all 2s"
     document.getElementById('loader').style.display = 'none';
