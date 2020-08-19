@@ -5,7 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.18.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.18.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.18.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.18.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.18.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <link rel="shortcut icon" type="image/png" href="./static/images/favicon.png">
     <link rel="stylesheet" href="./static/min-css/back2.css" type="text/css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
@@ -20,8 +30,8 @@
     <link rel="stylesheet" href="./static/min-css/try.css">
     <link rel="stylesheet" type="text/css" href="./static/min-css/loader.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-    <script src="../static/particles.js"></script>
-    <script src="../static/wow.min.js"></script>
+    <script src="./static/particles.js"></script>
+    <script src="./static/wow.min.js"></script>
     <title>Aakarshit Pandey - Computer Scientist | App Developer</title>
 </head>
 
@@ -671,7 +681,7 @@
                 error.classList.add('text-warning')
                 error.textContent = "The feild cannot be empty!"
             } else {
-                axios.post('/', {
+                axios.post('http://aakarshitpandey-mywebsite.herokuapp.com/', {
                     message: msg,
                 })
                     .then((res) => {
@@ -689,6 +699,11 @@
                     })
             }
         })
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOMContentLoaded')
+        });
     </script>
     <!-- </div> -->
 </body>

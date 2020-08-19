@@ -11,15 +11,15 @@ app.use(express.static(__dirname))
 app.use(bodyparser())
 
 app.get('/', (req, res, next) => {
-    res.sendFile(path.join(__dirname + '/views/index.html'))
+    res.sendFile(path.join(__dirname + '/public/views/index.html'))
 })
 
 app.get('/:fileName', (req, res, next) => {
-    fs.readdir(path.join(__dirname + '/views'), (err, items) => {
+    fs.readdir(path.join(__dirname + '/public/views'), (err, items) => {
         if (items.findIndex((element) => {
             return element.localeCompare(`${req.params.fileName}`) === 0
         }) !== -1) {
-            res.sendFile(path.join(__dirname + `/views/${req.params.fileName}`));
+            res.sendFile(path.join(__dirname + `/public/views/${req.params.fileName}`));
         } else {
             res.status(404).send()
         }
