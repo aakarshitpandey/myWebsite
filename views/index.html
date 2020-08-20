@@ -673,6 +673,7 @@
             } else {
                 const xhr = new XMLHttpRequest()
                 xhr.open('POST', '/')
+                xhr.setRequestHeader('Content-Type', 'application/json')
                 xhr.onreadystatechange = () => {
                     if (xhr.status === 200) {
                         error.classList.remove('text-warning')
@@ -687,25 +688,9 @@
                         error.textContent = "Your message couldn't be sent!"
                     }
                 }
-                xhr.send({
+                xhr.send(JSON.stringify({
                     message: msg,
-                })
-                // axios.post('/', {
-                //     message: msg,
-                // })
-                //     .then((res) => {
-                //         error.classList.remove('text-warning')
-                //         error.classList.remove('text-danger')
-                //         error.classList.add('text-success')
-                //         document.getElementById('error-msg').textContent = 'Your message has been sent!'
-                //     })
-                //     .catch((err) => {
-                //         const error = document.getElementById('error-msg')
-                //         error.classList.remove('text-warning')
-                //         error.classList.remove('text-success')
-                //         error.classList.add('text-danger')
-                //         error.textContent = "Your message couldn't be sent!"
-                //     })
+                }))
             }
         })
     </script>
