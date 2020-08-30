@@ -5,34 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.18.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.18.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.18.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.18.0/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.18.0/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+    <<<<<<< HEAD:public/index.html <!-- update the version number as needed -->
+        <script defer src="/__/firebase/7.18.0/firebase-app.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script defer src="/__/firebase/7.18.0/firebase-auth.js"></script>
+        <script defer src="/__/firebase/7.18.0/firebase-database.js"></script>
+        <script defer src="/__/firebase/7.18.0/firebase-messaging.js"></script>
+        <script defer src="/__/firebase/7.18.0/firebase-storage.js"></script>
+        <!-- initialize the SDK after all desired features are loaded -->
+        <script defer src="/__/firebase/init.js"></script>
 
-    <link rel="shortcut icon" type="image/png" href="./static/images/favicon.png">
-    <link rel="stylesheet" href="./static/min-css/back2.css" type="text/css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=VT323&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Permanent+Marker&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
-    <link rel="stylesheet" href="./static/min-css/try.css">
-    <link rel="stylesheet" type="text/css" href="./static/min-css/loader.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-    <script src="./static/particles.js"></script>
-    <script src="./static/wow.min.js"></script>
-    <title>Aakarshit Pandey - Computer Scientist | App Developer</title>
+        <link rel="shortcut icon" type="image/png" href="./static/images/favicon.png">
+        =======
+        <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png">
+        <script src="../static/particles.min.js"></script>
+        <script src="../static/wow.min.js"></script>
+        >>>>>>> master:views/index.html
+        <link rel="stylesheet" href="./static/min-css/back2.css" type="text/css">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Permanent+Marker&family=Nunito:wght@600&family=Roboto:wght@100&family=VT323&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+        <link rel="stylesheet" href="./static/min-css/try.css">
+        <link rel="stylesheet" type="text/css" href="./static/min-css/loader.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        <<<<<<< HEAD:public/index.html <script src="./static/particles.js">
+            </script>
+            <script src="./static/wow.min.js"></script>
+            =======
+            >>>>>>> master:views/index.html
+            <title>Aakarshit Pandey - Computer Scientist | App Developer</title>
 </head>
 
 <body>
@@ -450,7 +456,7 @@
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="../static/particles.js"></script>
+    <!-- <script src="../static/particles.js"></script> -->
     <script src="../app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
     <script>
@@ -527,10 +533,10 @@
         let skillChart2 = new Chart(ctx2, {
             type: 'doughnut',
             data: {
-                labels: ['Android Studio', 'iOS App Development', 'React', 'Django', 'Node', 'AWS', 'OpenCV', 'Spring Boot'],
+                labels: ['Android Studio', 'iOS App Development', 'React', 'Django', 'Node', 'AWS', 'OpenCV', 'Spring Boot', 'Dialog Flow'],
                 datasets: [{
                     label: 'Technologies',
-                    data: [20, 70, 90, 65, 95, 80, 60, 80],
+                    data: [20, 70, 90, 65, 95, 80, 60, 80, 80],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.8)',
                         'rgba(54, 162, 235, 0.8)',
@@ -540,6 +546,7 @@
                         'rgba(255, 99, 132, 0.8)',
                         'rgba(75, 192, 192, 0.8)',
                         'rgba(153, 102, 255, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
@@ -550,6 +557,7 @@
                         'rgba(255, 99, 132, 1)',
                         'rgba(75, 192, 192, 1)',
                         'rgba(153, 102, 255, 1)',
+                        'rgba(54, 162, 235, 1)',
                     ],
                     borderWidth: 1,
                 }]
@@ -576,7 +584,7 @@
             }
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
@@ -667,7 +675,7 @@
         })
     </script>
     <script src="../static/wow.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script async src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <script>
         new WOW().init();
         const doneButton = document.getElementById('sendEmail');
@@ -681,22 +689,26 @@
                 error.classList.add('text-warning')
                 error.textContent = "The feild cannot be empty!"
             } else {
-                axios.post('http://aakarshitpandey-mywebsite.herokuapp.com/', {
-                    message: msg,
-                })
-                    .then((res) => {
+                const xhr = new XMLHttpRequest()
+                xhr.open('POST', '/')
+                xhr.setRequestHeader('Content-Type', 'application/json')
+                xhr.onreadystatechange = () => {
+                    if (xhr.status === 200) {
                         error.classList.remove('text-warning')
                         error.classList.remove('text-danger')
                         error.classList.add('text-success')
                         document.getElementById('error-msg').textContent = 'Your message has been sent!'
-                    })
-                    .catch((err) => {
+                    } else {
                         const error = document.getElementById('error-msg')
                         error.classList.remove('text-warning')
                         error.classList.remove('text-success')
                         error.classList.add('text-danger')
                         error.textContent = "Your message couldn't be sent!"
-                    })
+                    }
+                }
+                xhr.send(JSON.stringify({
+                    message: msg,
+                }))
             }
         })
     </script>

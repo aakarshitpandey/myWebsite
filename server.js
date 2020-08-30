@@ -43,7 +43,7 @@ function sendMessage(sendText) {
     sgMail.setApiKey(creds.SENDGRID_API_KEY);
     const msg = {
         to: 'aakarshit.pandey7@gmail.com',
-        from: 'aakarshit_p@yahoo.com',
+        from: 'aakarshit.pandey7@gmail.com',
         subject: 'Message from Personal Website',
         text: `Hi! someone messaged you on your website: ${sendText}`,
         html: `<strong>Hi! someone messaged you on your website:</strong><p>${sendText}</p>`,
