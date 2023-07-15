@@ -21,7 +21,7 @@
     "node": "10.15.3"
   },
   "scripts": {
-    "minify-css": "postcss static/css/ --dir static/min-css/",
+    "minify-css": "postcss public/static/css/ --dir public/static/min-css/",
     "test": "npm start",
     "start": "node server.js",
     "dev": "nodemon server.js"
